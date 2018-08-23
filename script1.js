@@ -1,8 +1,8 @@
 
 //define variables
-var rightNumber = randomNumber();
+
 var guess = document.querySelector('#number_guess');
-var numberInput = parseInt(guess.value);
+// var numberInput = parseInt(guess.value);
 
 //Button variables
 var submitGuessButton = document.querySelector('.submit_guess');
@@ -21,9 +21,18 @@ var box = document.querySelector('#guess');
 
 
 
+
 //max and min range inputs
-var minimumRange = document.querySelector('#min_range').value;
-var maximumRange = document.querySelector('#max_range').value;
+var minimumRange = document.querySelector('#min_range');
+var min = parseInt(minimumRange.value);
+
+
+
+var maximumRange = document.querySelector('#max_range');
+var max = parseInt(maximumRange.value);
+
+
+var rightNumber = randomNumber(min, max);
 
 var displayMinimum = document.querySelector('#display_minimum');
 var displayMaximum = document.querySelector('#display_maximum');
@@ -31,8 +40,6 @@ var displayMaximum = document.querySelector('#display_maximum');
 
 
 //
-let defaultMinimumRange = 0;
-let defaultMaximumRange = 100;
 
 
 
@@ -41,6 +48,7 @@ submitGuessButton.addEventListener('click', updateRecentGuess);
 submitGuessButton.addEventListener('click', evaluateNumber);
 clearGuessButton.addEventListener('click', clearGuessForm);
 resetButton.addEventListener('click', resetForm);
+
 setRangeButton.addEventListener('click', assignMinMax);
 
 
@@ -48,20 +56,36 @@ guess.addEventListener('keyup', disableButton);
 
 
 
+function randomNumber(min, max) {
+min = Math.ceil(min);
+max = Math.floor(max);
+return Math.floor(Math.random()*(max - min + 1))+ min};
+
+
+
+minimumRange.addEventListener('keyup', function(event){
+event.preventDefault();
+min = parseInt(minimumRange.value);
+rightNumber = randomNumber(min, max);
+});
+
+maximumRange.addEventListener('keyup', function(event){
+event.preventDefault();
+max = parseInt(maximumRange.value);
+rightNumber = randomNumber(min, max);
+})
 
 
 //FUNCTIONS ~~~~~
 
 //Generate random number in range
-function randomNumber() {
-return Math.floor(Math.random()*100+1)};
-var rightNumber = randomNumber();
+
+
 
 //Show most recent guess on page
 function updateRecentGuess(event) {
   event.preventDefault();
-  guessValue = document.querySelector('#number_guess').value;
-  box.innerText = (guessValue); 
+  box.innerText = (guess.value); 
 }
 
 //Show if too hi or low
@@ -83,11 +107,11 @@ function evaluateNumber(){
   };
 //Display alert if guess is not between 0 and 100
 
-  if (guessValue > 100 || guessValue < 1){
-    alert("Must be a valid number between 0 and 100");
+  if (guess.value > max || guess.value < min){
+    alert(`Must be a valid number between ${min} and ${max}`);
     return false;
   }
-if (Number.isNaN(guessValue) != false){
+if (Number.isNaN(guess.value) != false){
   alert('Must enter a valid number')
   }
 }
@@ -103,7 +127,7 @@ function clearGuessForm(event){
 //function to reset entire form
 function resetForm(event){
   event.preventDefault();
-  guess.value= "";
+  window.location.reload(true);
 }
 
 
@@ -115,18 +139,20 @@ function disableButton() {
     submitGuessButton.disabled = true;
     clearGuessButton.disabled = true;
     resetButton.disabled = true;
-    console.log('if');
+    ;
   } 
   else {
     submitGuessButton.disabled = false;
     clearGuessButton.disabled = false;
     resetButton.disabled = false;
-    console.log('else');
+    ;
   }
 };
 
 
-function assignMinMax(){
-  console.log('hey');
+function assignMinMax(event){
+  event.preventDefault();
+  displayMinimum.innerText = (minimumRange.value);
+  displayMaximum.innerText = (maximumRange.value);
 
-}
+};

@@ -22,32 +22,26 @@
 
   <form class="form">
 
-<!-- 
-  <div class = "slider_div">
-      <label for="slide_min"> minimum </label>
-     <input  id = "slider_min" type="range" min="1" max="1000" value="100" class="slider">
-      <p id= "show_slider_min">  </p>
-
-
-      <label for="slide_max"> maximum </label>
-    <input type="range" min="1" max="1000" value="  100" class="slider" id="slider_max">
-  </div> -->
+<div id = "rangestyle">
     
     <input class = "range_input" id="min_range" type="number" placeholder="Enter minimum range">
-   <h2 id="display_minimum">  </h2>
+   <p> minimum: <span id="display_minimum"> ? </span> </p>
 
     <input class ="range_input" id="max_range" type="number" placeholder= "Enter maximum range">
-    <h2 id="display_maximum">  </h2>
+    <p> maximum: <span id="display_maximum"> ? </span>  </p>
+</div>
+
+
+
 
     <br/>
 
+
+<div id = 'guessstyle'>
     <button id = "set_min_max" > Set min and max </button>
 
     <br/>
-    
-
-    <!-- <input type="range" id= "range_weight" value="5" min = "1" max="100" oninput="range_weight_disp.value = range_weight.value" placeholder="range"> 
-    <output id="range_weight_disp"> </output> -->
+  
 
 
     <input id="number_guess" type="text" min= "0" max ="100" placeholder= "Enter your guess">
@@ -58,7 +52,11 @@
     
 
     <button class="clear_guess" disabled> Clear </button>
-  
+
+</div>
+
+
+
   </form>
   
   <p> Your last guess was </p>

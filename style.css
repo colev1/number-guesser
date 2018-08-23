@@ -2,17 +2,17 @@
 head{
   color: red;}
 
-.range_input{
-  margin: 50px 10px 20px 10px;
+.rangestyle{
+  margin: 5px 10px 20px 10px;
   width: 200px;
   height: 40px;
+  position: inline;
 }
 
-input{
+.guessstyle{
   width: 140px;
   padding: 5px;
   font-size: 16px;
-
 }
 
 body{
@@ -22,8 +22,7 @@ body{
   width: 100%;
   text-align: center;
   font-weight: 300;
-  
-}
+  }
 
 
 header{
@@ -64,7 +63,6 @@ button:hover:enabled{
 }
 
 
-
 .number{
   font-size: 20px;
   color: #E6E7E8;
@@ -75,13 +73,6 @@ button:hover:enabled{
   font-size: 60px;
   color: #EB008B;
 }
-
-
-/*
-#numberGuess{
-  margin-top: 100px;
-}*/
-
 
 h1{
   font-family: impact;
@@ -101,6 +92,4 @@ h2{
   border-top: none;
 }
 
-.slider{
-  display: inline;
-}
+
