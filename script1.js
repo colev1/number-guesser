@@ -1,68 +1,33 @@
 
-//define variables
+//VARIABLES
 
 var guess = document.querySelector('#number_guess');
-// var numberInput = parseInt(guess.value);
+var box = document.querySelector('#guess');
 
 //Button variables
 var submitGuessButton = document.querySelector('.submit_guess');
 var clearGuessButton = document.querySelector('.clear_guess');
 var resetButton = document.querySelector('#reset_form');
 
-var setRangeButton = document.querySelector('#set_min_max');
-//
-
-//response variable
 var responseLowHigh = document.querySelector('#responseToGuess');
-
-//display guess
-var box = document.querySelector('#guess');
-
-
-
-
 
 //max and min range inputs
 var minimumRange = document.querySelector('#min_range');
 var min = parseInt(minimumRange.value);
 
-
-
 var maximumRange = document.querySelector('#max_range');
 var max = parseInt(maximumRange.value);
-
-
 var rightNumber = randomNumber(min, max);
+var displayMinMax = document.querySelector('#display_min_max');
 
-var displayMinimum = document.querySelector('#display_minimum');
-var displayMaximum = document.querySelector('#display_maximum');
-
-
-
-//
-
-
-
-//Event Listener
+//Event Listeners
 submitGuessButton.addEventListener('click', updateRecentGuess);
 submitGuessButton.addEventListener('click', evaluateNumber);
 clearGuessButton.addEventListener('click', clearGuessForm);
 resetButton.addEventListener('click', resetForm);
-
-setRangeButton.addEventListener('click', assignMinMax);
-
-
+minimumRange.addEventListener('keyup', assignMinMax);
+maximumRange.addEventListener('keyup', assignMinMax);
 guess.addEventListener('keyup', disableButton);
-
-
-
-function randomNumber(min, max) {
-min = Math.ceil(min);
-max = Math.floor(max);
-return Math.floor(Math.random()*(max - min + 1))+ min};
-
-
-
 minimumRange.addEventListener('keyup', function(event){
 event.preventDefault();
 min = parseInt(minimumRange.value);
@@ -76,10 +41,11 @@ rightNumber = randomNumber(min, max);
 })
 
 
-//FUNCTIONS ~~~~~
-
-//Generate random number in range
-
+//Functions
+function randomNumber(min, max) {
+min = Math.ceil(min);
+max = Math.floor(max);
+return Math.floor(Math.random()*(max - min + 1))+ min};
 
 
 //Show most recent guess on page
@@ -105,7 +71,7 @@ function evaluateNumber(){
   else{
   responseLowHigh.innerText = "this is not a number."
   };
-//Display alert if guess is not between 0 and 100
+  //Display alert if guess is not between 0 and 100
 
   if (guess.value > max || guess.value < min){
     alert(`Must be a valid number between ${min} and ${max}`);
@@ -132,7 +98,6 @@ function resetForm(event){
 
 
 //disable buttons when input field is empty
-
 function disableButton() {
 ;
   if (guess.value === "") { 
@@ -149,10 +114,14 @@ function disableButton() {
   }
 };
 
-
+//check min and max range inputs
 function assignMinMax(event){
-  event.preventDefault();
-  displayMinimum.innerText = (minimumRange.value);
-  displayMaximum.innerText = (maximumRange.value);
-
+  event.preventDefault(); 
+  if (minimumRange.value >= maximumRange.value){
+    displayMinMax.innerText = ('Minimum must be smaller than maximum');
+  }
+  else{
+  displayMinMax.innerText = (`Now guess a number between ${minimumRange.value} and ${maximumRange.value}`);
 };
+
+}

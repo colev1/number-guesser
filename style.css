@@ -1,6 +1,25 @@
 
-head{
-  color: red;}
+
+body{
+  font-family: 'Open sans', sans-serif ;
+  align-content: center;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  font-weight: 300;
+  }
+
+header{
+  background-color: #404041;
+  color: #E6E7E8;
+  font-size: 36px;
+  padding: 20px;
+}
+
+strong{
+  color: #ED458B;
+  font-weight: 700;
+}
 
 .rangestyle{
   margin: 5px 10px 20px 10px;
@@ -15,33 +34,6 @@ head{
   font-size: 16px;
 }
 
-body{
-  font-family: 'Open sans', sans-serif ;
-  align-content: center;
-  margin: auto;
-  width: 100%;
-  text-align: center;
-  font-weight: 300;
-  }
-
-
-header{
-  background-color: #404041;
-  color: #E6E7E8;
-  font-size: 36px;
-  padding: 20px;
-}
-
-strong{
-  color: #ED458B;
-  font-weight: 700;
-}
-
-fieldset{
-  font-size: 40px;
-  padding: 20px;
-  margin: none;
-}
 button{
   background-color: #929497;
   color: #FFFFFF;

@@ -16,47 +16,34 @@
     <strong> Number </strong> Guesser
   </header>
 
-  
+  <form>
 
+    <p> Choose a minimum and maximum range!  </p>
 
-
-  <form class="form">
-
-<div id = "rangestyle">
+    <div id = "rangestyle">
     
-    <input class = "range_input" id="min_range" type="number" placeholder="Enter minimum range">
-   <p> minimum: <span id="display_minimum"> ? </span> </p>
+      <input class = "range_input" id="min_range" type="number" placeholder="Enter minimum range">
+       
+      <input class ="range_input" id="max_range" type="number" placeholder= "Enter maximum range">
+        
+      <p>  <span id="display_min_max"> </span> </p>
 
-    <input class ="range_input" id="max_range" type="number" placeholder= "Enter maximum range">
-    <p> maximum: <span id="display_maximum"> ? </span>  </p>
-</div>
-
-
-
-
-    <br/>
-
-
-<div id = 'guessstyle'>
-    <button id = "set_min_max" > Set min and max </button>
+   </div>
 
     <br/>
   
-
-
+  <div id = 'guessstyle'>
+  
     <input id="number_guess" type="text" min= "0" max ="100" placeholder= "Enter your guess">
-
-    <br/>
+  <br/>
 
     <button class="submit_guess" disabled > Guess </button>
     
 
     <button class="clear_guess" disabled> Clear </button>
 
-</div>
-
-
-
+  </div>
+  
   </form>
   
   <p> Your last guess was </p>
